@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7GFKEM9P5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7GFKEM9P5');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세후 수익 계산기 | 국내·해외주식 양도소득세 반영 실수령액 계산</title>
+
+    <meta name="description" content="매매 차익과 세율을 입력하면 세금을 제외한 실제 수령액을 즉시 계산해주는 무료 도구입니다. 국내외 주식 세후 수익 확인에 활용하세요.">
+    <meta name="keywords" content="세후 수익 계산기, 양도소득세 계산, 해외주식 세금, 주식 세금 계산, 실수령액 계산">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://stock-calc.bond/after-tax-profit">
+
+    <meta property="og:title" content="세후 수익 계산기 | 양도소득세 반영 실수령액 계산">
+    <meta property="og:description" content="매매 차익에서 세금을 제외한 실제 수령액을 즉시 계산해보세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stock-calc.bond/after-tax-profit">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="주식 평단가 계산기">
+    <meta property="og:image" content="https://stock-calc.bond/og-image.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="세후 수익 계산기">
+    <meta name="twitter:description" content="세금을 제외한 실제 수령액을 즉시 계산해보세요.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2131701253866532" crossorigin="anonymous"></script>
+    <meta name="google-site-verification" content="uqhdvKNpTWoI96MvIdquON3uLKApuBOuEfo_uKFwroE" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "세후 수익 계산기",
+      "url": "https://stock-calc.bond/after-tax-profit",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "description": "매매 차익과 세율을 기준으로 세금을 제외한 실제 수령액을 계산해주는 무료 온라인 도구"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "국내주식과 해외주식의 세금 구조가 다른가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 다릅니다. 국내 상장주식은 대주주가 아닌 일반 개인 투자자의 매매차익에 대해 원칙적으로 양도소득세가 부과되지 않는 경우가 많지만, 해외주식은 매매차익에 대해 양도소득세가 부과되는 등 과세 방식이 다릅니다. 정확한 세율과 공제 항목은 세법 개정에 따라 달라질 수 있으므로 국세청 자료나 세무 전문가 확인이 필요합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "이 계산기의 세율은 어떻게 입력해야 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "본인에게 적용되는 정확한 세율(기본공제, 지방소득세 포함 여부 등)을 직접 확인하신 뒤 입력하셔야 합니다. 이 계산기는 입력한 세율을 단순히 차익에 곱하는 방식으로 동작하며, 세법상의 공제 항목이나 예외 규정을 자동으로 반영하지 않습니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        body { font-family: 'Pretendard', sans-serif; background-color: #f4f7f9; color: #333; margin: 0; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .nav { max-width: 600px; width: 100%; box-sizing: border-box; margin-bottom: 20px; display: flex; gap: 16px; font-size: 0.9rem; flex-wrap: wrap; }
+        .nav a { color: #3182ce; text-decoration: none; font-weight: 600; }
+        .nav a.active { color: #1a202c; text-decoration: underline; }
+        .calculator-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 400px; width: 100%; box-sizing: border-box; margin-bottom: 30px; }
+        h1 { text-align: center; color: #1a202c; margin-top: 0; font-size: 1.5rem; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 0.9rem; margin-bottom: 5px; color: #4a5568; font-weight: 500; }
+        .input-group input { width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+        button { width: 100%; padding: 14px; background-color: #dd6b20; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .result-box { margin-top: 20px; background: #fffaf0; padding: 15px; border-radius: 6px; border: 1px solid #feebc8; display: none; }
+        .result-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; }
+        .result-item:last-child { font-weight: bold; color: #9c4221; font-size: 1.1rem; border-top: 1px dashed #fbd38d; padding-top: 10px; }
+        .seo-content { max-width: 600px; width: 100%; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); line-height: 1.7; color: #4a5568; }
+        .seo-content h2 { color: #2d3748; font-size: 1.4rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px; }
+        .seo-content h3 { color: #3182ce; font-size: 1.15rem; margin-top: 30px; margin-bottom: 12px; }
+        .example-box { background: #f7fafc; border-left: 4px solid #dd6b20; padding: 12px 16px; margin: 15px 0; border-radius: 4px; font-size: 0.95rem; }
+        .faq-item { margin-bottom: 20px; }
+        .faq-item summary { font-weight: 600; color: #2d3748; cursor: pointer; padding: 8px 0; }
+        .related { max-width: 600px; width: 100%; margin-top: 20px; }
+        .related a { display: inline-block; margin-right: 12px; color: #3182ce; text-decoration: none; font-size: 0.9rem; }
+        .disclaimer { max-width: 600px; width: 100%; font-size: 0.8rem; color: #a0aec0; text-align: center; margin-top: 20px; line-height: 1.6; }
+        .warning-box { background: #fff5f5; border: 1px solid #fed7d7; color: #c53030; font-size: 0.85rem; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="/">평단가 계산기</a>
+    <a href="/stoploss">손절가 계산기</a>
+    <a href="/target-return">목표 수익률 계산기</a>
+    <a href="/dividend">배당금 계산기</a>
+    <a href="/after-tax-profit" class="active">세후 수익 계산기</a>
+    <a href="/fx-overseas-stock">해외주식 환차손익 계산기</a>
+</div>
+
+<div class="calculator-container">
+    <h1>세후 수익 계산기</h1>
+    <div class="warning-box">⚠️ 세율은 본인이 직접 확인 후 입력해야 합니다. 이 계산기는 세법상 공제 항목을 자동 반영하지 않습니다.</div>
+    <div class="input-group">
+        <label for="buyPrice">매수 총액 (원)</label>
+        <input type="number" id="buyPrice" placeholder="예: 5000000">
+    </div>
+    <div class="input-group">
+        <label for="sellPrice">매도 총액 (원)</label>
+        <input type="number" id="sellPrice" placeholder="예: 6000000">
+    </div>
+    <div class="input-group">
+        <label for="taxRate">적용 세율 (%, 본인 확인 후 입력)</label>
+        <input type="number" id="taxRate" placeholder="예: 22">
+    </div>
+    <button onclick="calculate()">계산하기</button>
+    <div class="result-box" id="resultBox">
+        <div class="result-item"><span>매매 차익 (세전):</span><span id="resGross">0원</span></div>
+        <div class="result-item"><span>예상 세금:</span><span id="resTax">0원</span></div>
+        <div class="result-item"><span>세후 실수익:</span><span id="resNet">0원</span></div>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h2>🧾 세후 수익 계산기 활용 가이드</h2>
+    <p>주식 매매 차익이 발생해도, 세금 종류에 따라 실제로 손에 쥐는 금액은 그보다 적을 수 있습니다. 매수·매도 총액과 본인에게 적용되는 세율을 입력하면 대략적인 세후 실수익을 확인할 수 있습니다.</p>
+
+    <h3>이 계산기는 어떻게 동작하나요?</h3>
+    <p>매도 총액에서 매수 총액을 뺀 매매 차익에, 입력한 세율을 단순히 곱하는 방식으로 예상 세금을 계산합니다. 기본공제, 필요경비, 지방소득세 포함 여부 등 실제 세법상의 세부 규정은 반영하지 않으므로, 정확한 참고용으로만 활용하시기 바랍니다.</p>
+
+    <div class="example-box">
+        <strong>계산 예시</strong><br>
+        매수 총액: 5,000,000원, 매도 총액: 6,000,000원, 세율: 22%<br>
+        → 세전 매매 차익 = 1,000,000원<br>
+        → 예상 세금 = 220,000원<br>
+        → 세후 실수익 = 780,000원
+    </div>
+
+    <h3>국내·해외주식 세금 차이 유의하기</h3>
+    <p>국내 상장주식과 해외 상장주식은 과세 방식과 적용 세율이 다르게 구성되는 경우가 많습니다. 본인이 거래하는 시장과 종목에 어떤 세금 규정이 적용되는지는 국세청 공식 자료나 세무 전문가를 통해 정확히 확인한 뒤, 그 세율을 이 계산기에 입력하시는 것을 권장합니다.</p>
+
+    <h3>자주 묻는 질문 (FAQ)</h3>
+    <details class="faq-item">
+        <summary>국내주식과 해외주식의 세금 구조가 다른가요?</summary>
+        <p>네, 다릅니다. 국내 상장주식은 대주주가 아닌 일반 개인 투자자의 매매차익에 대해 원칙적으로 양도소득세가 부과되지 않는 경우가 많지만, 해외주식은 매매차익에 대해 양도소득세가 부과되는 등 과세 방식이 다릅니다. 정확한 세율과 공제 항목은 세법 개정에 따라 달라질 수 있으므로 국세청 자료나 세무 전문가 확인이 필요합니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>이 계산기의 세율은 어떻게 입력해야 하나요?</summary>
+        <p>본인에게 적용되는 정확한 세율(기본공제, 지방소득세 포함 여부 등)을 직접 확인하신 뒤 입력하셔야 합니다. 이 계산기는 입력한 세율을 단순히 차익에 곱하는 방식으로 동작하며, 세법상의 공제 항목이나 예외 규정을 자동으로 반영하지 않습니다.</p>
+    </details>
+</div>
+
+<div class="related">
+    관련 계산기:
+    <a href="/target-return">목표 수익률 계산기</a>
+    <a href="/fx-overseas-stock">해외주식 환차손익 계산기</a>
+</div>
+
+<div class="related" style="margin-top: 8px;">
+    <a href="/privacy">개인정보처리방침</a>
+    <a href="/terms">이용약관</a>
+</div>
+
+<p class="disclaimer">본 계산기는 투자 및 세무 참고 목적으로만 제공되며, 실제 세금은 세법 및 개인 상황에 따라 달라질 수 있습니다. 정확한 세무 판단은 세무 전문가와 상담하시기 바랍니다. 본 사이트는 투자·세무 자문을 제공하지 않습니다.</p>
+
+<script>
+    function calculate() {
+        const buyPrice = parseFloat(document.getElementById('buyPrice').value) || 0;
+        const sellPrice = parseFloat(document.getElementById('sellPrice').value) || 0;
+        const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+        if (buyPrice === 0 && sellPrice === 0) { alert("매수 총액과 매도 총액을 입력해주세요."); return; }
+        const gross = sellPrice - buyPrice;
+        const tax = gross > 0 ? gross * (taxRate / 100) : 0;
+        const net = gross - tax;
+        document.getElementById('resGross').innerText = Math.round(gross).toLocaleString() + '원';
+        document.getElementById('resTax').innerText = Math.round(tax).toLocaleString() + '원';
+        document.getElementById('resNet').innerText = Math.round(net).toLocaleString() + '원';
+        document.getElementById('resultBox').style.display = 'block';
+    }
+</script>
+</body>
+</html>

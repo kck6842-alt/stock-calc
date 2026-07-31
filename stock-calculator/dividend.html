@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7GFKEM9P5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7GFKEM9P5');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배당금 계산기 | 보유 주식 수 기준 예상 배당금 자동 계산</title>
+
+    <meta name="description" content="보유 주식 수와 주당 배당금을 입력하면 예상 배당금과 배당수익률을 즉시 계산해주는 무료 도구입니다. 배당주 투자 계획에 활용하세요.">
+    <meta name="keywords" content="배당금 계산기, 배당수익률 계산, 배당주 투자, 주당 배당금, 예상 배당금 계산">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://stock-calc.bond/dividend">
+
+    <meta property="og:title" content="배당금 계산기 | 보유 주식 수 기준 예상 배당금 자동 계산">
+    <meta property="og:description" content="보유 주식 수와 주당 배당금으로 예상 배당금을 즉시 계산해보세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stock-calc.bond/dividend">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="주식 평단가 계산기">
+    <meta property="og:image" content="https://stock-calc.bond/og-image.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="배당금 계산기">
+    <meta name="twitter:description" content="예상 배당금과 배당수익률을 즉시 계산해보세요.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2131701253866532" crossorigin="anonymous"></script>
+    <meta name="google-site-verification" content="uqhdvKNpTWoI96MvIdquON3uLKApuBOuEfo_uKFwroE" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "배당금 계산기",
+      "url": "https://stock-calc.bond/dividend",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "description": "보유 주식 수와 주당 배당금을 기준으로 예상 배당금과 배당수익률을 계산해주는 무료 온라인 도구"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "배당수익률은 어떻게 계산하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "배당수익률은 연간 주당 배당금을 현재 주가로 나누어 백분율로 표시한 값입니다. 매수 단가를 기준으로 계산하면 본인이 실제로 받는 수익률(원가 대비 배당수익률)을 확인할 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "배당금에도 세금이 붙나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 국내 상장주식의 배당소득에는 배당소득세가 원천징수됩니다. 정확한 세율과 종합과세 여부는 개인의 소득 수준과 세법에 따라 달라질 수 있으므로, 정확한 세후 금액은 국세청 자료나 세무 전문가를 통해 확인하는 것이 좋습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "분기 배당과 연간 배당은 어떻게 다르게 계산하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "분기 배당을 지급하는 종목은 1회 지급되는 주당 배당금에 연간 지급 횟수를 곱해 연간 배당금을 추정할 수 있습니다. 다만 배당 정책은 기업 상황에 따라 변경될 수 있어, 과거 지급 내역이 미래 배당을 보장하지는 않습니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        body { font-family: 'Pretendard', sans-serif; background-color: #f4f7f9; color: #333; margin: 0; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .nav { max-width: 600px; width: 100%; box-sizing: border-box; margin-bottom: 20px; display: flex; gap: 16px; font-size: 0.9rem; flex-wrap: wrap; }
+        .nav a { color: #3182ce; text-decoration: none; font-weight: 600; }
+        .nav a.active { color: #1a202c; text-decoration: underline; }
+        .calculator-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 400px; width: 100%; box-sizing: border-box; margin-bottom: 30px; }
+        h1 { text-align: center; color: #1a202c; margin-top: 0; font-size: 1.5rem; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 0.9rem; margin-bottom: 5px; color: #4a5568; font-weight: 500; }
+        .input-group input { width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+        button { width: 100%; padding: 14px; background-color: #805ad5; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .result-box { margin-top: 20px; background: #faf5ff; padding: 15px; border-radius: 6px; border: 1px solid #e9d8fd; display: none; }
+        .result-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; }
+        .result-item:last-child { font-weight: bold; color: #553c9a; font-size: 1.1rem; border-top: 1px dashed #d6bcfa; padding-top: 10px; }
+        .seo-content { max-width: 600px; width: 100%; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); line-height: 1.7; color: #4a5568; }
+        .seo-content h2 { color: #2d3748; font-size: 1.4rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px; }
+        .seo-content h3 { color: #3182ce; font-size: 1.15rem; margin-top: 30px; margin-bottom: 12px; }
+        .example-box { background: #f7fafc; border-left: 4px solid #805ad5; padding: 12px 16px; margin: 15px 0; border-radius: 4px; font-size: 0.95rem; }
+        .faq-item { margin-bottom: 20px; }
+        .faq-item summary { font-weight: 600; color: #2d3748; cursor: pointer; padding: 8px 0; }
+        .related { max-width: 600px; width: 100%; margin-top: 20px; }
+        .related a { display: inline-block; margin-right: 12px; color: #3182ce; text-decoration: none; font-size: 0.9rem; }
+        .disclaimer { max-width: 600px; width: 100%; font-size: 0.8rem; color: #a0aec0; text-align: center; margin-top: 20px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="/">평단가 계산기</a>
+    <a href="/stoploss">손절가 계산기</a>
+    <a href="/target-return">목표 수익률 계산기</a>
+    <a href="/dividend" class="active">배당금 계산기</a>
+    <a href="/after-tax-profit">세후 수익 계산기</a>
+    <a href="/fx-overseas-stock">해외주식 환차손익 계산기</a>
+</div>
+
+<div class="calculator-container">
+    <h1>배당금 계산기</h1>
+    <div class="input-group">
+        <label for="qty">보유 주식 수 (주)</label>
+        <input type="number" id="qty" placeholder="예: 100">
+    </div>
+    <div class="input-group">
+        <label for="dividendPerShare">주당 배당금 (원, 1회 지급 기준)</label>
+        <input type="number" id="dividendPerShare" placeholder="예: 500">
+    </div>
+    <div class="input-group">
+        <label for="paymentsPerYear">연간 지급 횟수</label>
+        <input type="number" id="paymentsPerYear" placeholder="예: 4 (분기배당)" value="1">
+    </div>
+    <div class="input-group">
+        <label for="avgPrice">매수 단가 (원, 선택사항)</label>
+        <input type="number" id="avgPrice" placeholder="예: 50000">
+    </div>
+    <button onclick="calculate()">계산하기</button>
+    <div class="result-box" id="resultBox">
+        <div class="result-item"><span>1회 배당금:</span><span id="resOnce">0원</span></div>
+        <div class="result-item"><span>연간 예상 배당금:</span><span id="resYearly">0원</span></div>
+        <div class="result-item" id="yieldRow" style="display:none;"><span>원가 대비 배당수익률:</span><span id="resYield">0%</span></div>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h2>💰 배당금 계산기 활용 가이드</h2>
+    <p>배당주 투자자에게 예상 배당금을 미리 파악하는 것은 현금 흐름 계획에 중요한 요소입니다. 보유 주식 수와 주당 배당금, 연간 지급 횟수를 입력하면 연간 예상 배당금과 원가 대비 배당수익률을 즉시 확인할 수 있습니다.</p>
+
+    <h3>배당수익률이란?</h3>
+    <p>배당수익률은 투자한 금액 대비 연간 받을 수 있는 배당금의 비율입니다. 매수 단가를 기준으로 계산하면, 현재 주가가 아니라 본인이 실제로 투자한 원가 대비 수익률을 확인할 수 있어 장기 배당 투자자에게 유용한 지표입니다.</p>
+
+    <div class="example-box">
+        <strong>계산 예시</strong><br>
+        보유 주식 수: 100주, 1회 배당금: 500원, 연 4회 지급, 매수 단가: 50,000원<br>
+        → 1회 배당금 = 50,000원<br>
+        → 연간 예상 배당금 = 200,000원<br>
+        → 원가 대비 배당수익률 = 4.0%
+    </div>
+
+    <h3>분기 배당과 배당 성장 확인하기</h3>
+    <p>최근에는 분기마다 배당을 지급하는 종목이 늘고 있습니다. 배당 계획을 세울 때는 단순히 연간 총액뿐 아니라, 각 분기별로 얼마씩 들어오는지도 함께 확인하면 현금 흐름 관리에 도움이 됩니다. 다만 배당 정책은 기업의 실적과 이사회 결정에 따라 언제든 변경될 수 있다는 점을 유의해야 합니다.</p>
+
+    <h3>세금 고려하기</h3>
+    <p>이 계산기는 세전 배당금을 기준으로 계산합니다. 실제로 계좌에 입금되는 금액은 배당소득세가 원천징수된 이후 금액이므로, 정확한 실수령액을 알고 싶다면 세율을 적용해 별도로 계산해보시는 것을 권장합니다.</p>
+
+    <h3>자주 묻는 질문 (FAQ)</h3>
+    <details class="faq-item">
+        <summary>배당수익률은 어떻게 계산하나요?</summary>
+        <p>배당수익률은 연간 주당 배당금을 현재 주가로 나누어 백분율로 표시한 값입니다. 매수 단가를 기준으로 계산하면 본인이 실제로 받는 수익률(원가 대비 배당수익률)을 확인할 수 있습니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>배당금에도 세금이 붙나요?</summary>
+        <p>네, 국내 상장주식의 배당소득에는 배당소득세가 원천징수됩니다. 정확한 세율과 종합과세 여부는 개인의 소득 수준과 세법에 따라 달라질 수 있으므로, 정확한 세후 금액은 국세청 자료나 세무 전문가를 통해 확인하는 것이 좋습니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>분기 배당과 연간 배당은 어떻게 다르게 계산하나요?</summary>
+        <p>분기 배당을 지급하는 종목은 1회 지급되는 주당 배당금에 연간 지급 횟수를 곱해 연간 배당금을 추정할 수 있습니다. 다만 배당 정책은 기업 상황에 따라 변경될 수 있어, 과거 지급 내역이 미래 배당을 보장하지는 않습니다.</p>
+    </details>
+</div>
+
+<div class="related">
+    관련 계산기:
+    <a href="/">주식 평단가 계산기</a>
+    <a href="/after-tax-profit">세후 수익 계산기</a>
+</div>
+
+<div class="related" style="margin-top: 8px;">
+    <a href="/privacy">개인정보처리방침</a>
+    <a href="/terms">이용약관</a>
+</div>
+
+<p class="disclaimer">본 계산기는 투자 참고 목적으로만 제공되며, 투자 판단에 대한 책임은 이용자 본인에게 있습니다. 본 사이트는 투자 자문을 제공하지 않습니다.</p>
+
+<script>
+    function calculate() {
+        const qty = parseFloat(document.getElementById('qty').value) || 0;
+        const dps = parseFloat(document.getElementById('dividendPerShare').value) || 0;
+        const paymentsPerYear = parseFloat(document.getElementById('paymentsPerYear').value) || 1;
+        const avgPrice = parseFloat(document.getElementById('avgPrice').value) || 0;
+        if (qty === 0 || dps === 0) { alert("보유 주식 수와 주당 배당금을 입력해주세요."); return; }
+        const once = qty * dps;
+        const yearly = once * paymentsPerYear;
+        document.getElementById('resOnce').innerText = Math.round(once).toLocaleString() + '원';
+        document.getElementById('resYearly').innerText = Math.round(yearly).toLocaleString() + '원';
+        const yieldRow = document.getElementById('yieldRow');
+        if (avgPrice > 0) {
+            const totalCost = avgPrice * qty;
+            const yieldPct = (yearly / totalCost) * 100;
+            document.getElementById('resYield').innerText = yieldPct.toFixed(2) + '%';
+            yieldRow.style.display = 'flex';
+        } else {
+            yieldRow.style.display = 'none';
+        }
+        document.getElementById('resultBox').style.display = 'block';
+    }
+</script>
+</body>
+</html>

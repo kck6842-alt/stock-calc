@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7GFKEM9P5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7GFKEM9P5');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주식 평단가 계산기 | 물타기 평단가 및 분할매수 시뮬레이션</title>
+
+    <!-- SEO 메타 태그 -->
+    <meta name="description" content="주식 물타기 평단가 계산기 - 추가 매수 시 최종 평균 단가를 무료로 즉시 계산하세요. 삼성전자, SK하이닉스 등 종목별 분할매수 시뮬레이션을 지원합니다.">
+    <meta name="keywords" content="주식 평단가 계산기, 물타기 계산기, 분할매수 계산기, 평균단가 계산, 주식 계산기, 물타기 전략">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://stock-calc.bond/">
+
+    <!-- Open Graph (카카오톡/페이스북 공유) -->
+    <meta property="og:title" content="주식 평단가 계산기 | 물타기 평단가 및 분할매수 시뮬레이션">
+    <meta property="og:description" content="추가 매수 시 최종 평균 단가를 즉시 계산해주는 무료 계산기입니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stock-calc.bond/">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="주식 평단가 계산기">
+    <meta property="og:image" content="https://stock-calc.bond/og-image.png">
+
+    <!-- 트위터 카드 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="주식 평단가 계산기">
+    <meta name="twitter:description" content="물타기 평단가를 즉시 계산해보세요.">
+
+    <!-- 구글 애드센스 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2131701253866532" crossorigin="anonymous"></script>
+    <!-- 구글 서치 콘솔 소유권 확인 코드 -->
+    <meta name="google-site-verification" content="uqhdvKNpTWoI96MvIdquON3uLKApuBOuEfo_uKFwroE" />
+
+    <!-- 구조화 데이터: WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "주식 평단가 계산기",
+      "url": "https://stock-calc.bond/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "description": "주식 물타기 평단가 및 분할매수 시뮬레이션을 계산해주는 무료 온라인 도구"
+    }
+    </script>
+
+    <!-- 구조화 데이터: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "물타기란 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "물타기는 보유 중인 주식의 주가가 하락했을 때 추가로 매수하여 평균 매수 단가를 낮추는 투자 전략입니다. 평단가가 낮아지면 이후 주가가 반등했을 때 더 빨리 손익분기점에 도달할 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "물타기가 항상 유리한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아닙니다. 물타기는 기업의 펀더멘털에 문제가 없고 일시적인 주가 하락일 때 효과적입니다. 반면 실적 악화 등 구조적인 문제로 주가가 하락하는 경우에는 추가 매수가 손실을 키울 수 있어 신중한 판단이 필요합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "분할매수와 물타기의 차이는 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "분할매수는 처음부터 매수 시점과 금액을 여러 번으로 나누어 계획적으로 진입하는 전략이고, 물타기는 이미 보유한 주식의 가격이 하락한 뒤 대응 차원에서 추가 매수하는 것을 말합니다. 넓은 의미에서 물타기도 분할매수의 한 형태로 볼 수 있습니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        body { font-family: 'Pretendard', sans-serif; background-color: #f4f7f9; color: #333; margin: 0; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .calculator-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 400px; width: 100%; box-sizing: border-box; margin-bottom: 30px; }
+        h1 { text-align: center; color: #1a202c; margin-top: 0; font-size: 1.5rem; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 0.9rem; margin-bottom: 5px; color: #4a5568; font-weight: 500; }
+        .input-group input { width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+        .section-title { font-size: 1rem; font-weight: bold; color: #2d3748; margin: 20px 0 10px 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        button { width: 100%; padding: 14px; background-color: #3182ce; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .result-box { margin-top: 20px; background: #ebf8ff; padding: 15px; border-radius: 6px; border: 1px solid #bee3f8; display: none; }
+        .result-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; }
+        .result-item:last-child { font-weight: bold; color: #2c5282; font-size: 1.1rem; border-top: 1px dashed #90cdf4; padding-top: 10px; }
+        .seo-content { max-width: 600px; width: 100%; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); line-height: 1.7; color: #4a5568; }
+        .seo-content h2 { color: #2d3748; font-size: 1.4rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px; }
+        .seo-content h3 { color: #3182ce; font-size: 1.15rem; margin-top: 30px; margin-bottom: 12px; }
+        .example-box { background: #f7fafc; border-left: 4px solid #3182ce; padding: 12px 16px; margin: 15px 0; border-radius: 4px; font-size: 0.95rem; }
+        .faq-item { margin-bottom: 20px; }
+        .faq-item summary { font-weight: 600; color: #2d3748; cursor: pointer; padding: 8px 0; }
+        .disclaimer { max-width: 600px; width: 100%; font-size: 0.8rem; color: #a0aec0; text-align: center; margin-top: 20px; line-height: 1.6; }
+        .nav { max-width: 600px; width: 100%; box-sizing: border-box; margin-bottom: 20px; display: flex; gap: 16px; font-size: 0.9rem; flex-wrap: wrap; }
+        .nav a { color: #3182ce; text-decoration: none; font-weight: 600; }
+        .nav a.active { color: #1a202c; text-decoration: underline; }
+        .related { max-width: 600px; width: 100%; margin-top: 20px; }
+        .related a { display: inline-block; margin-right: 12px; color: #3182ce; text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="/" class="active">평단가 계산기</a>
+    <a href="/stoploss">손절가 계산기</a>
+    <a href="/target-return">목표 수익률 계산기</a>
+    <a href="/dividend">배당금 계산기</a>
+    <a href="/after-tax-profit">세후 수익 계산기</a>
+    <a href="/fx-overseas-stock">해외주식 환차손익 계산기</a>
+</div>
+
+<div class="calculator-container">
+    <h1>주식 평단가 계산기</h1>
+    <div class="input-group">
+        <label for="stockName">종목명 (선택사항)</label>
+        <input type="text" id="stockName" placeholder="예: 삼성전자, 하이닉스">
+    </div>
+    <div class="section-title">보유 중인 주식 (기존)</div>
+    <div class="input-group">
+        <label for="oldPrice">매수 단가 (원)</label>
+        <input type="number" id="oldPrice" placeholder="예: 50000">
+    </div>
+    <div class="input-group">
+        <label for="oldQty">보유 수량 (주)</label>
+        <input type="number" id="oldQty" placeholder="예: 100">
+    </div>
+    <div class="section-title">추가 매수 (물타기)</div>
+    <div class="input-group">
+        <label for="newPrice">추가 매수 단가 (원)</label>
+        <input type="number" id="newPrice" placeholder="예: 45000">
+    </div>
+    <div class="input-group">
+        <label for="newQty">추가 매수 수량 (주)</label>
+        <input type="number" id="newQty" placeholder="예: 50">
+    </div>
+    <button onclick="calculate()">계산하기</button>
+    <div class="result-box" id="resultBox">
+        <div class="result-item"><span>총 보유 수량:</span><span id="resQty">0주</span></div>
+        <div class="result-item"><span>총 매수 금액:</span><span id="resTotal">0원</span></div>
+        <div class="result-item"><span>최종 평균 단가:</span><span id="resAvg">0원</span></div>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h2>📈 주식 평단가(물타기) 계산기 200% 활용 가이드</h2>
+    <p>성공적인 주식 투자를 위해서는 감정에 휘둘리지 않는 철저한 자금 관리와 분할 매수 원칙이 필수적입니다. 이 계산기는 기존 보유 주식과 추가 매수 정보를 입력하면 최종 평균 단가를 즉시 계산해주는 무료 도구입니다.</p>
+
+    <h3>평단가란 무엇인가요?</h3>
+    <p>평단가(평균 단가)는 여러 번에 걸쳐 매수한 주식의 가중평균 매수 가격을 의미합니다. 동일 종목을 서로 다른 가격에 여러 차례 매수했을 때, 총 매수 금액을 총 보유 수량으로 나눈 값이 평단가입니다. 평단가를 정확히 파악해야 손익분기점과 목표 매도가를 계획할 수 있습니다.</p>
+
+    <h3>1. 종가 베팅과 분할 매수 전략의 핵심</h3>
+    <p>종가 베팅 전략을 사용할 때 이 계산기를 활용하면 추가 매수 시 최종 평단가를 즉시 시뮬레이션할 수 있습니다. 매수 전에 미리 평단가 변화를 계산해보면 감정적인 매매를 줄이고 계획된 원칙에 따라 대응할 수 있습니다.</p>
+
+    <div class="example-box">
+        <strong>계산 예시</strong><br>
+        기존 보유: 50,000원에 100주<br>
+        추가 매수: 45,000원에 50주<br>
+        → 총 보유 150주, 총 매수금액 7,250,000원<br>
+        → 최종 평균 단가 = 48,333원
+    </div>
+
+    <h3>2. 실전 시뮬레이션: 삼성전자 & 하이닉스</h3>
+    <p>변동성이 큰 대형주를 거래할 때는 평단가 관리가 특히 중요합니다. 삼성전자나 SK하이닉스처럼 거래량이 많은 종목은 단기 변동폭이 크기 때문에, 추가 매수 전 평단가와 필요 자금을 미리 계산해보고 진입하는 것이 안전합니다.</p>
+
+    <h3>3. 변동성 장세 리스크 관리</h3>
+    <p>주가 하락 시 무리한 추가 매수보다는 평단가 인하 효과와 투자 가능 금액을 함께 따져보고 현명하게 대응하세요. 물타기는 만능 해법이 아니며, 기업 펀더멘털에 대한 판단이 함께 이루어져야 합니다.</p>
+
+    <h3>자주 묻는 질문 (FAQ)</h3>
+    <details class="faq-item">
+        <summary>물타기란 무엇인가요?</summary>
+        <p>물타기는 보유 중인 주식의 주가가 하락했을 때 추가로 매수하여 평균 매수 단가를 낮추는 투자 전략입니다. 평단가가 낮아지면 이후 주가가 반등했을 때 더 빨리 손익분기점에 도달할 수 있습니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>물타기가 항상 유리한가요?</summary>
+        <p>아닙니다. 물타기는 기업의 펀더멘털에 문제가 없고 일시적인 주가 하락일 때 효과적입니다. 반면 실적 악화 등 구조적인 문제로 주가가 하락하는 경우에는 추가 매수가 손실을 키울 수 있어 신중한 판단이 필요합니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>분할매수와 물타기의 차이는 무엇인가요?</summary>
+        <p>분할매수는 처음부터 매수 시점과 금액을 여러 번으로 나누어 계획적으로 진입하는 전략이고, 물타기는 이미 보유한 주식의 가격이 하락한 뒤 대응 차원에서 추가 매수하는 것을 말합니다. 넓은 의미에서 물타기도 분할매수의 한 형태로 볼 수 있습니다.</p>
+    </details>
+</div>
+
+<div class="related">
+    관련 계산기:
+    <a href="/stoploss">손절가 계산기</a>
+    <a href="/target-return">목표 수익률 계산기</a>
+</div>
+
+<div class="related" style="margin-top: 8px;">
+    <a href="/privacy">개인정보처리방침</a>
+    <a href="/terms">이용약관</a>
+</div>
+
+<p class="disclaimer">본 계산기는 투자 참고 목적으로만 제공되며, 투자 판단에 대한 책임은 이용자 본인에게 있습니다. 본 사이트는 투자 자문을 제공하지 않습니다.</p>
+
+<script>
+    function calculate() {
+        const oldPrice = parseFloat(document.getElementById('oldPrice').value) || 0;
+        const oldQty = parseFloat(document.getElementById('oldQty').value) || 0;
+        const newPrice = parseFloat(document.getElementById('newPrice').value) || 0;
+        const newQty = parseFloat(document.getElementById('newQty').value) || 0;
+        if (oldQty + newQty === 0) { alert("수량을 입력해주세요."); return; }
+        const totalCost = (oldPrice * oldQty) + (newPrice * newQty);
+        const totalQty = oldQty + newQty;
+        const newAvg = totalCost / totalQty;
+        document.getElementById('resQty').innerText = totalQty.toLocaleString() + '주';
+        document.getElementById('resTotal').innerText = Math.round(totalCost).toLocaleString() + '원';
+        document.getElementById('resAvg').innerText = Math.round(newAvg).toLocaleString() + '원';
+        document.getElementById('resultBox').style.display = 'block';
+    }
+</script>
+</body>
+</html>
