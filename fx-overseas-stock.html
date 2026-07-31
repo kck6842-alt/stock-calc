@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7GFKEM9P5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7GFKEM9P5');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>해외주식 환차손익 계산기 | 환율 변동 반영 원화 손익 자동 계산</title>
+
+    <meta name="description" content="매수·매도 시점의 환율과 주가를 입력하면 환차손익까지 반영한 원화 기준 실제 손익을 즉시 계산해주는 무료 도구입니다.">
+    <meta name="keywords" content="해외주식 환차손익 계산기, 환율 손익 계산, 해외주식 원화 환산, 환차익 환차손, 미국주식 계산기">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://stock-calc.bond/fx-overseas-stock">
+
+    <meta property="og:title" content="해외주식 환차손익 계산기 | 환율 변동 반영 원화 손익 계산">
+    <meta property="og:description" content="환율 변동을 반영한 해외주식 원화 손익을 즉시 계산해보세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stock-calc.bond/fx-overseas-stock">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="주식 평단가 계산기">
+    <meta property="og:image" content="https://stock-calc.bond/og-image.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="해외주식 환차손익 계산기">
+    <meta name="twitter:description" content="환율 변동을 반영한 원화 손익을 즉시 계산해보세요.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2131701253866532" crossorigin="anonymous"></script>
+    <meta name="google-site-verification" content="uqhdvKNpTWoI96MvIdquON3uLKApuBOuEfo_uKFwroE" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "해외주식 환차손익 계산기",
+      "url": "https://stock-calc.bond/fx-overseas-stock",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "description": "매수·매도 시점의 환율과 주가를 기준으로 환차손익을 반영한 원화 손익을 계산해주는 무료 온라인 도구"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "환차익과 환차손이란 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "환차익은 매수 시점보다 매도 시점의 환율이 유리하게 변해 원화 환산 금액이 늘어난 경우를 말하고, 환차손은 반대로 환율이 불리하게 변해 원화 환산 금액이 줄어든 경우를 말합니다. 해외주식은 주가 자체의 손익과 별개로 환율 변동에 따른 손익이 함께 발생합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "주가는 올랐는데 원화로는 손실일 수도 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 가능합니다. 현지 통화 기준 주가가 상승하더라도, 매도 시점의 환율이 매수 시점보다 크게 하락했다면 원화로 환산한 최종 손익은 마이너스가 될 수 있습니다. 반대의 경우도 마찬가지로, 주가가 하락해도 환율 상승으로 원화 기준 손실이 상쇄되거나 이익으로 바뀔 수 있습니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        body { font-family: 'Pretendard', sans-serif; background-color: #f4f7f9; color: #333; margin: 0; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .nav { max-width: 600px; width: 100%; box-sizing: border-box; margin-bottom: 20px; display: flex; gap: 16px; font-size: 0.9rem; flex-wrap: wrap; }
+        .nav a { color: #3182ce; text-decoration: none; font-weight: 600; }
+        .nav a.active { color: #1a202c; text-decoration: underline; }
+        .calculator-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 400px; width: 100%; box-sizing: border-box; margin-bottom: 30px; }
+        h1 { text-align: center; color: #1a202c; margin-top: 0; font-size: 1.5rem; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 0.9rem; margin-bottom: 5px; color: #4a5568; font-weight: 500; }
+        .input-group input { width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+        .section-title { font-size: 1rem; font-weight: bold; color: #2d3748; margin: 20px 0 10px 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        button { width: 100%; padding: 14px; background-color: #2b6cb0; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .result-box { margin-top: 20px; background: #ebf8ff; padding: 15px; border-radius: 6px; border: 1px solid #bee3f8; display: none; }
+        .result-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; }
+        .result-item:last-child { font-weight: bold; color: #2c5282; font-size: 1.1rem; border-top: 1px dashed #90cdf4; padding-top: 10px; }
+        .seo-content { max-width: 600px; width: 100%; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); line-height: 1.7; color: #4a5568; }
+        .seo-content h2 { color: #2d3748; font-size: 1.4rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px; }
+        .seo-content h3 { color: #3182ce; font-size: 1.15rem; margin-top: 30px; margin-bottom: 12px; }
+        .example-box { background: #f7fafc; border-left: 4px solid #2b6cb0; padding: 12px 16px; margin: 15px 0; border-radius: 4px; font-size: 0.95rem; }
+        .faq-item { margin-bottom: 20px; }
+        .faq-item summary { font-weight: 600; color: #2d3748; cursor: pointer; padding: 8px 0; }
+        .related { max-width: 600px; width: 100%; margin-top: 20px; }
+        .related a { display: inline-block; margin-right: 12px; color: #3182ce; text-decoration: none; font-size: 0.9rem; }
+        .disclaimer { max-width: 600px; width: 100%; font-size: 0.8rem; color: #a0aec0; text-align: center; margin-top: 20px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="/">평단가 계산기</a>
+    <a href="/stoploss">손절가 계산기</a>
+    <a href="/target-return">목표 수익률 계산기</a>
+    <a href="/dividend">배당금 계산기</a>
+    <a href="/after-tax-profit">세후 수익 계산기</a>
+    <a href="/fx-overseas-stock" class="active">해외주식 환차손익 계산기</a>
+    <a href="/guide/">투자 가이드</a>
+</div>
+
+<div class="calculator-container">
+    <h1>해외주식 환차손익 계산기</h1>
+    <div class="section-title">매수 시점</div>
+    <div class="input-group">
+        <label for="buyPriceUsd">매수 주가 (현지통화)</label>
+        <input type="number" id="buyPriceUsd" placeholder="예: 150">
+    </div>
+    <div class="input-group">
+        <label for="buyRate">매수 시점 환율 (원/1단위)</label>
+        <input type="number" id="buyRate" placeholder="예: 1350">
+    </div>
+    <div class="section-title">매도 시점</div>
+    <div class="input-group">
+        <label for="sellPriceUsd">매도 주가 (현지통화)</label>
+        <input type="number" id="sellPriceUsd" placeholder="예: 160">
+    </div>
+    <div class="input-group">
+        <label for="sellRate">매도 시점 환율 (원/1단위)</label>
+        <input type="number" id="sellRate" placeholder="예: 1300">
+    </div>
+    <div class="input-group">
+        <label for="qty">보유 수량 (주)</label>
+        <input type="number" id="qty" placeholder="예: 10">
+    </div>
+    <button onclick="calculate()">계산하기</button>
+    <div class="result-box" id="resultBox">
+        <div class="result-item"><span>매수 원화 환산액:</span><span id="resBuyKrw">0원</span></div>
+        <div class="result-item"><span>매도 원화 환산액:</span><span id="resSellKrw">0원</span></div>
+        <div class="result-item"><span>주가 변동분(현지통화 환산):</span><span id="resPriceEffect">0원</span></div>
+        <div class="result-item"><span>환율 변동분(환차손익):</span><span id="resFxEffect">0원</span></div>
+        <div class="result-item"><span>총 원화 손익:</span><span id="resTotal">0원</span></div>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h2>💱 해외주식 환차손익 계산기 활용 가이드</h2>
+    <p>해외주식은 주가와 환율이라는 두 개의 변수가 동시에 손익에 영향을 줍니다. 매수·매도 시점의 주가와 환율을 각각 입력하면, 원화 기준 최종 손익이 주가 요인과 환율 요인으로 나뉘어 표시됩니다.</p>
+
+    <h3>왜 손익을 두 갈래로 나눠서 봐야 하나</h3>
+    <p>증권사 앱에는 최종 손익 하나만 표시되는 경우가 많습니다. 그런데 그 숫자만으로는 <strong>내 종목 선택이 옳았는지</strong> 알 수 없습니다. 주가는 잘 골랐는데 환율 때문에 손해를 봤을 수도 있고, 반대로 종목은 틀렸는데 환율 덕분에 손실이 가려졌을 수도 있기 때문입니다.</p>
+    <p>손익을 분해해서 보면 다음 투자에 쓸 수 있는 정보가 남습니다. 환율 요인이 손익의 대부분을 차지하고 있다면, 그 매매의 결과는 내 판단이 아니라 외부 변수에 좌우된 것입니다. 이런 상태가 반복된다면 환율 흐름을 함께 고려하거나 환헤지 상품을 검토할 이유가 됩니다.</p>
+
+    <div class="example-box">
+        <strong>계산 예시</strong><br>
+        매수: 150달러, 환율 1,350원 / 매도: 160달러, 환율 1,300원 / 10주<br>
+        → 매수 원화 환산액 = 150 × 1,350 × 10 = <strong>2,025,000원</strong><br>
+        → 매도 원화 환산액 = 160 × 1,300 × 10 = <strong>2,080,000원</strong><br>
+        → 총 원화 손익 = <strong>+55,000원</strong><br>
+        주가는 6.7% 올랐지만 환율이 3.7% 내려, 상승분의 상당 부분이 상쇄되었습니다.
+    </div>
+
+    <h3>네 가지 조합으로 보는 결과</h3>
+    <p>주가와 환율은 각각 오르거나 내릴 수 있으므로 네 가지 경우가 나옵니다. 어떤 조합인지에 따라 체감이 크게 달라집니다.</p>
+
+    <table>
+        <tr><th>주가</th><th>환율</th><th>원화 기준 결과</th></tr>
+        <tr><td>상승</td><td>상승</td><td>두 요인이 겹쳐 수익이 커짐</td></tr>
+        <tr><td>상승</td><td>하락</td><td>수익이 줄거나 손실로 전환될 수 있음</td></tr>
+        <tr><td>하락</td><td>상승</td><td>손실이 줄거나 이익으로 전환될 수 있음</td></tr>
+        <tr><td>하락</td><td>하락</td><td>두 요인이 겹쳐 손실이 커짐</td></tr>
+    </table>
+
+    <p>여기서 환율 상승은 원·달러 환율이 오르는 것, 즉 원화 가치가 떨어지는 상황을 말합니다. 달러 자산을 들고 있다면 원화로 바꿀 때 더 많은 원화를 받게 되므로 유리하게 작용합니다.</p>
+
+    <h3>계산에 사용할 환율은 어떤 값인가</h3>
+    <p>정확한 계산을 위해서는 실제로 적용된 환율을 써야 합니다. 그런데 환율은 종류가 여러 가지라 어떤 값을 넣어야 할지 헷갈리기 쉽습니다.</p>
+    <ul>
+        <li><strong>증권사 거래내역의 적용환율</strong> — 가장 정확합니다. 실제 결제에 사용된 값이기 때문입니다.</li>
+        <li><strong>매매기준율</strong> — 거래내역을 확인하기 어려울 때 쓰는 근사치입니다. 해당 날짜의 값을 사용합니다.</li>
+        <li><strong>현재 고시환율</strong> — 아직 매도하지 않은 상태에서 평가손익을 가늠할 때 사용합니다.</li>
+    </ul>
+    <p>실제 환전 시에는 고시환율에 스프레드가 붙기 때문에, 이 계산기의 결과와 최종 정산 금액 사이에는 약간의 차이가 생길 수 있습니다.</p>
+
+    <h3>원화 결제와 외화 결제의 차이</h3>
+    <p>해외주식을 살 때 원화로 바로 결제할지, 미리 환전해 둔 외화로 결제할지 선택할 수 있는 경우가 있습니다. 원화 결제는 편리하지만 매수 시점마다 환전이 일어나므로 환율 변동에 그대로 노출됩니다.</p>
+    <p>반면 환율이 낮을 때 미리 환전해 두고 외화로 매수하면, 매수 시점의 환율과 환전 시점의 환율이 달라집니다. 이 경우 계산기에 넣을 매수 환율은 <strong>실제로 환전한 시점의 환율</strong>이어야 실제 손익과 맞습니다.</p>
+
+    <h3>환율까지 감안한 목표 설정</h3>
+    <p>해외주식의 목표 수익률을 세울 때 주가만 보고 정하면 계획이 어긋나기 쉽습니다. 환율이 5% 움직이는 것은 흔한 일이고, 이는 목표 수익률 10%짜리 매매의 절반을 좌우하는 크기입니다.</p>
+    <p>따라서 목표를 세울 때는 현재 환율 수준이 과거 대비 어느 위치인지도 함께 보시는 것이 좋습니다. 환율이 이미 높은 구간에서 진입한다면, 주가가 올라도 환율 되돌림에 수익이 깎일 가능성을 미리 감안해야 합니다. 이 계산기로 환율 시나리오를 몇 가지 넣어보면 그 영향을 수치로 확인할 수 있습니다.</p>
+
+    <h3>자주 묻는 질문 (FAQ)</h3>
+    <details class="faq-item">
+        <summary>환차익과 환차손이란 무엇인가요?</summary>
+        <p>환차익은 매수 시점보다 매도 시점의 환율이 유리하게 변해 원화 환산 금액이 늘어난 경우를 말하고, 환차손은 반대로 환율이 불리하게 변해 원화 환산 금액이 줄어든 경우를 말합니다. 해외주식은 주가 자체의 손익과 별개로 환율 변동에 따른 손익이 함께 발생합니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>주가는 올랐는데 원화로는 손실일 수도 있나요?</summary>
+        <p>네, 가능합니다. 현지 통화 기준 주가가 상승하더라도, 매도 시점의 환율이 매수 시점보다 크게 하락했다면 원화로 환산한 최종 손익은 마이너스가 될 수 있습니다. 반대의 경우도 마찬가지로, 주가가 하락해도 환율 상승으로 원화 기준 손실이 상쇄되거나 이익으로 바뀔 수 있습니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>달러 외에 다른 통화도 계산할 수 있나요?</summary>
+        <p>가능합니다. 환율 칸에 해당 통화 1단위당 원화 금액을 입력하시면 됩니다. 다만 엔화처럼 100단위 기준으로 고시되는 통화는 1단위 기준으로 환산한 값을 넣어야 정확합니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>매도하지 않고 보유 중일 때도 쓸 수 있나요?</summary>
+        <p>네. 매도 항목에 현재 주가와 현재 환율을 입력하면 지금 팔았을 때의 평가손익을 확인할 수 있습니다. 환율만 바꿔가며 입력해 보면 환율이 내 수익에 얼마나 영향을 주는지 감을 잡는 데 도움이 됩니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>이 결과에 세금과 수수료가 반영되어 있나요?</summary>
+        <p>반영되어 있지 않습니다. 이 계산기는 주가와 환율만으로 손익을 계산합니다. 실제로는 매매 수수료, 환전 스프레드, 그리고 해외주식 양도소득세가 추가로 발생합니다. 세금까지 감안한 금액은 세후 수익 계산기를 함께 이용해 보세요.</p>
+    </details>
+</div>
+
+<div class="related">
+    관련 계산기:
+    <a href="/after-tax-profit">세후 수익 계산기</a>
+    <a href="/target-return">목표 수익률 계산기</a>
+</div>
+
+<div class="related" style="margin-top: 8px;">
+    <a href="/privacy">개인정보처리방침</a>
+    <a href="/terms">이용약관</a>
+</div>
+
+<p class="disclaimer">본 계산기는 투자 참고 목적으로만 제공되며, 실제 적용 환율 및 매매 수수료 등은 반영되지 않을 수 있습니다. 투자 판단에 대한 책임은 이용자 본인에게 있습니다. 본 사이트는 투자 자문을 제공하지 않습니다.</p>
+
+<script>
+    function calculate() {
+        const buyPriceUsd = parseFloat(document.getElementById('buyPriceUsd').value) || 0;
+        const buyRate = parseFloat(document.getElementById('buyRate').value) || 0;
+        const sellPriceUsd = parseFloat(document.getElementById('sellPriceUsd').value) || 0;
+        const sellRate = parseFloat(document.getElementById('sellRate').value) || 0;
+        const qty = parseFloat(document.getElementById('qty').value) || 0;
+        if (buyPriceUsd === 0 || buyRate === 0 || sellPriceUsd === 0 || sellRate === 0 || qty === 0) {
+            alert("모든 값을 입력해주세요."); return;
+        }
+        const buyKrw = buyPriceUsd * buyRate * qty;
+        const sellKrw = sellPriceUsd * sellRate * qty;
+        const totalPnl = sellKrw - buyKrw;
+        // 주가 변동 효과: 매수 환율로 고정했을 때의 손익
+        const priceEffect = (sellPriceUsd - buyPriceUsd) * buyRate * qty;
+        // 환율 변동 효과: 나머지
+        const fxEffect = totalPnl - priceEffect;
+
+        document.getElementById('resBuyKrw').innerText = Math.round(buyKrw).toLocaleString() + '원';
+        document.getElementById('resSellKrw').innerText = Math.round(sellKrw).toLocaleString() + '원';
+        document.getElementById('resPriceEffect').innerText = (priceEffect >= 0 ? '+' : '') + Math.round(priceEffect).toLocaleString() + '원';
+        document.getElementById('resFxEffect').innerText = (fxEffect >= 0 ? '+' : '') + Math.round(fxEffect).toLocaleString() + '원';
+        document.getElementById('resTotal').innerText = (totalPnl >= 0 ? '+' : '') + Math.round(totalPnl).toLocaleString() + '원';
+        document.getElementById('resultBox').style.display = 'block';
+    }
+</script>
+</body>
+</html>

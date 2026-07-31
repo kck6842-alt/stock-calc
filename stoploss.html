@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7GFKEM9P5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7GFKEM9P5');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>손절가 계산기 | 손절 라인 및 손실 금액 자동 계산</title>
+
+    <meta name="description" content="매수 단가와 손절 비율을 입력하면 손절가와 예상 손실 금액을 즉시 계산해주는 무료 도구입니다. 리스크 관리에 필요한 손절 라인을 미리 확인하세요.">
+    <meta name="keywords" content="손절가 계산기, 손절 라인, 손절매, 리스크 관리, 주식 손실 계산">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://stock-calc.bond/stoploss">
+
+    <meta property="og:title" content="손절가 계산기 | 손절 라인 및 손실 금액 자동 계산">
+    <meta property="og:description" content="매수 단가와 손절 비율로 손절가를 즉시 계산해보세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stock-calc.bond/stoploss">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="주식 평단가 계산기">
+    <meta property="og:image" content="https://stock-calc.bond/og-image.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="손절가 계산기">
+    <meta name="twitter:description" content="손절 라인과 손실 금액을 즉시 계산해보세요.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2131701253866532" crossorigin="anonymous"></script>
+    <meta name="google-site-verification" content="uqhdvKNpTWoI96MvIdquON3uLKApuBOuEfo_uKFwroE" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "손절가 계산기",
+      "url": "https://stock-calc.bond/stoploss",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "description": "매수 단가와 손절 비율을 기준으로 손절가와 예상 손실 금액을 계산해주는 무료 온라인 도구"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "손절 비율은 보통 몇 %로 설정하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "투자자마다 기준이 다르지만, 단기 트레이딩에서는 통상 5~10% 내외, 중장기 투자에서는 15~20% 내외로 설정하는 경우가 많습니다. 종목의 변동성과 본인의 투자 성향에 맞춰 사전에 정해두는 것이 중요합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "손절가를 반드시 지켜야 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "손절가는 큰 손실을 막기 위한 안전장치입니다. 매매 전에 손절 원칙을 세워두고 감정에 흔들리지 않고 지키는 것이 장기적인 자금 관리에 도움이 됩니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        body { font-family: 'Pretendard', sans-serif; background-color: #f4f7f9; color: #333; margin: 0; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .nav { max-width: 600px; width: 100%; box-sizing: border-box; margin-bottom: 20px; display: flex; gap: 16px; font-size: 0.9rem; flex-wrap: wrap; }
+        .nav a { color: #3182ce; text-decoration: none; font-weight: 600; }
+        .nav a.active { color: #1a202c; text-decoration: underline; }
+        .calculator-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 400px; width: 100%; box-sizing: border-box; margin-bottom: 30px; }
+        h1 { text-align: center; color: #1a202c; margin-top: 0; font-size: 1.5rem; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 0.9rem; margin-bottom: 5px; color: #4a5568; font-weight: 500; }
+        .input-group input { width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+        button { width: 100%; padding: 14px; background-color: #e53e3e; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .result-box { margin-top: 20px; background: #fff5f5; padding: 15px; border-radius: 6px; border: 1px solid #fed7d7; display: none; }
+        .result-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; }
+        .result-item:last-child { font-weight: bold; color: #c53030; font-size: 1.1rem; border-top: 1px dashed #feb2b2; padding-top: 10px; }
+        .seo-content { max-width: 600px; width: 100%; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); line-height: 1.7; color: #4a5568; }
+        .seo-content h2 { color: #2d3748; font-size: 1.4rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px; }
+        .seo-content h3 { color: #3182ce; font-size: 1.15rem; margin-top: 30px; margin-bottom: 12px; }
+        .example-box { background: #f7fafc; border-left: 4px solid #e53e3e; padding: 12px 16px; margin: 15px 0; border-radius: 4px; font-size: 0.95rem; }
+        .faq-item { margin-bottom: 20px; }
+        .faq-item summary { font-weight: 600; color: #2d3748; cursor: pointer; padding: 8px 0; }
+        .related { max-width: 600px; width: 100%; margin-top: 20px; }
+        .related a { display: inline-block; margin-right: 12px; color: #3182ce; text-decoration: none; font-size: 0.9rem; }
+        .disclaimer { max-width: 600px; width: 100%; font-size: 0.8rem; color: #a0aec0; text-align: center; margin-top: 20px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="/">평단가 계산기</a>
+    <a href="/stoploss" class="active">손절가 계산기</a>
+    <a href="/target-return">목표 수익률 계산기</a>
+    <a href="/dividend">배당금 계산기</a>
+    <a href="/after-tax-profit">세후 수익 계산기</a>
+    <a href="/fx-overseas-stock">해외주식 환차손익 계산기</a>
+    <a href="/guide/">투자 가이드</a>
+</div>
+
+<div class="calculator-container">
+    <h1>손절가 계산기</h1>
+    <div class="input-group">
+        <label for="entryPrice">매수 단가 (원)</label>
+        <input type="number" id="entryPrice" placeholder="예: 50000">
+    </div>
+    <div class="input-group">
+        <label for="qty">보유 수량 (주)</label>
+        <input type="number" id="qty" placeholder="예: 100">
+    </div>
+    <div class="input-group">
+        <label for="lossRate">손절 비율 (%)</label>
+        <input type="number" id="lossRate" placeholder="예: 10">
+    </div>
+    <button onclick="calculate()">계산하기</button>
+    <div class="result-box" id="resultBox">
+        <div class="result-item"><span>손절가:</span><span id="resStopPrice">0원</span></div>
+        <div class="result-item"><span>예상 손실 금액:</span><span id="resLossAmount">0원</span></div>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h2>🛑 손절가 계산기 활용 가이드</h2>
+    <p>손절가는 손실이 감당 가능한 범위를 넘어서기 전에 빠져나오기 위해 미리 정해두는 가격입니다. 매수 단가와 감내할 수 있는 손실 비율을 입력하면 손절 가격과 그때의 손실 금액이 함께 계산됩니다.</p>
+
+    <h3>손실은 커질수록 회복이 어려워집니다</h3>
+    <p>손절 원칙이 필요한 가장 근본적인 이유는 수학에 있습니다. 10% 하락한 자산이 원금으로 돌아오려면 10%가 아니라 약 11.1%가 올라야 합니다. 하락은 원래 금액을 기준으로 계산되지만, 회복은 이미 줄어든 금액을 기준으로 계산되기 때문입니다.</p>
+    <p>이 차이는 손실이 커질수록 급격히 벌어집니다. 아래 표를 보시면 왜 손실을 초기에 끊어야 하는지가 분명해집니다.</p>
+
+    <table>
+        <tr><th>하락률</th><th>1,000만 원 → 남은 금액</th><th>원금 회복에 필요한 상승률</th></tr>
+        <tr><td>-5%</td><td>950만 원</td><td>+5.3%</td></tr>
+        <tr><td>-10%</td><td>900만 원</td><td>+11.1%</td></tr>
+        <tr><td>-20%</td><td>800만 원</td><td>+25.0%</td></tr>
+        <tr><td>-30%</td><td>700만 원</td><td>+42.9%</td></tr>
+        <tr><td>-50%</td><td>500만 원</td><td>+100.0%</td></tr>
+        <tr><td>-70%</td><td>300만 원</td><td>+233.3%</td></tr>
+    </table>
+
+    <p>-10%에서 끊으면 11% 상승으로 되돌릴 수 있지만, -50%까지 방치하면 두 배가 올라야 제자리입니다. 손절은 손실을 확정하는 행위처럼 보이지만, 실제로는 회복 가능한 범위 안에 손실을 묶어두는 행위입니다.</p>
+
+    <div class="example-box">
+        <strong>계산 예시</strong><br>
+        매수 단가: 50,000원, 보유 수량: 100주, 손절 비율: 10%<br>
+        → 손절가 = 50,000 × (1 - 0.10) = <strong>45,000원</strong><br>
+        → 예상 손실 금액 = (50,000 - 45,000) × 100주 = <strong>500,000원</strong>
+    </div>
+
+    <h3>손절 라인을 정하는 네 가지 접근법</h3>
+    <p>손절 기준은 하나가 아닙니다. 투자 스타일과 종목 성격에 따라 적합한 방식이 다릅니다.</p>
+    <ul>
+        <li><strong>고정 비율 방식</strong> — 매수가 대비 -5%, -10% 등 정해진 비율에서 매도합니다. 가장 단순하고 실행하기 쉬워 초보자에게 적합합니다.</li>
+        <li><strong>금액 기준 방식</strong> — 한 종목에서 잃어도 되는 최대 금액을 먼저 정하고, 그 금액에서 역산해 손절가를 잡습니다. 종목별 투자금이 다를 때 유용합니다.</li>
+        <li><strong>기술적 기준 방식</strong> — 전저점이나 주요 이동평균선 아래로 내려가면 매도합니다. 차트를 보는 투자자가 쓰는 방식이며, 종목마다 손절 폭이 달라집니다.</li>
+        <li><strong>시간 기준 방식</strong> — 정해둔 기간 안에 예상한 움직임이 나오지 않으면 정리합니다. 가격이 아니라 기회비용을 기준으로 삼는 접근입니다.</li>
+    </ul>
+
+    <h3>손절 비율은 몇 퍼센트가 적당할까</h3>
+    <p>정답은 없지만 기준을 잡을 때 고려할 요소는 분명합니다. 첫째는 <strong>종목의 평소 변동성</strong>입니다. 하루에 3~4%씩 움직이는 종목에 -3% 손절선을 걸면 일상적인 흔들림에도 매도가 나가버립니다. 반대로 변동성이 작은 종목에 -20%를 잡으면 손절선이 사실상 없는 것과 같습니다.</p>
+    <p>둘째는 <strong>보유 기간</strong>입니다. 며칠 안에 정리할 단기 매매라면 손절선을 타이트하게, 몇 달 이상 볼 계획이라면 여유 있게 잡는 것이 일반적입니다. 통상 단기 매매는 5~10%, 중장기는 15~20% 범위를 언급하지만, 이는 참고치일 뿐 본인의 종목과 자금 상황에 맞게 조정해야 합니다.</p>
+    <p>셋째는 <strong>전체 자산 대비 비중</strong>입니다. 전 재산의 절반이 들어간 종목과 5%만 들어간 종목의 손절 기준이 같을 수는 없습니다. 비중이 클수록 손절선을 앞당기는 것이 안전합니다.</p>
+
+    <h3>정해놓고도 못 지키는 이유</h3>
+    <p>손절 원칙을 세우는 것보다 어려운 것이 지키는 일입니다. 주가가 손절선에 닿으면 <strong>조금만 더 기다리면 반등하지 않을까</strong>라는 생각이 반드시 듭니다. 그리고 실제로 반등하는 경우도 있기 때문에, 한 번 원칙을 어겨서 성공하면 다음부터는 더 지키기 어려워집니다.</p>
+    <p>이를 줄이는 현실적인 방법은 매수와 동시에 손절 주문을 미리 걸어두는 것입니다. 대부분의 증권사가 자동 감시 주문이나 스탑로스 기능을 제공합니다. 판단이 흐려질 상황이 오기 전에, 판단이 맑을 때 정한 기준을 시스템에 맡기는 것입니다.</p>
+
+    <h3>자주 묻는 질문 (FAQ)</h3>
+    <details class="faq-item">
+        <summary>손절 비율은 보통 몇 %로 설정하나요?</summary>
+        <p>투자자마다 기준이 다르지만, 단기 트레이딩에서는 통상 5~10% 내외, 중장기 투자에서는 15~20% 내외로 설정하는 경우가 많습니다. 종목의 변동성과 본인의 투자 성향에 맞춰 사전에 정해두는 것이 중요합니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>손절가를 반드시 지켜야 하나요?</summary>
+        <p>손절가는 큰 손실을 막기 위한 안전장치입니다. 매매 전에 손절 원칙을 세워두고 감정에 흔들리지 않고 지키는 것이 장기적인 자금 관리에 도움이 됩니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>손절 기준을 매수가로 잡아야 하나요, 평단가로 잡아야 하나요?</summary>
+        <p>여러 번 나눠 매수했다면 평단가를 기준으로 잡는 것이 실제 손익과 일치합니다. 최초 매수가를 기준으로 계산하면 추가 매수 이후의 실제 손실 금액과 차이가 생깁니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>손절한 종목을 다시 사도 되나요?</summary>
+        <p>손절은 그 시점의 판단이 틀렸다는 것이지 그 종목이 영원히 나쁘다는 뜻은 아닙니다. 다만 손절 직후 감정적으로 되사는 것은 원칙을 무너뜨리는 행동입니다. 재진입한다면 새로운 근거와 새로운 손절 기준을 다시 세운 뒤에 하는 것이 좋습니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>손절가에 닿았는데 장중에 다시 올라가면 어떻게 하나요?</summary>
+        <p>이런 상황 때문에 종가 기준으로 판단하는 투자자도 많습니다. 장중 일시적인 이탈까지 모두 손절로 처리하면 매매가 지나치게 잦아지기 때문입니다. 장중 기준으로 할지 종가 기준으로 할지도 미리 정해두면 판단이 훨씬 단순해집니다.</p>
+    </details>
+</div>
+
+<div class="related">
+    관련 계산기:
+    <a href="/">주식 평단가 계산기</a>
+    <a href="/target-return">목표 수익률 계산기</a>
+</div>
+
+<div class="related" style="margin-top: 8px;">
+    <a href="/privacy">개인정보처리방침</a>
+    <a href="/terms">이용약관</a>
+</div>
+
+<p class="disclaimer">본 계산기는 투자 참고 목적으로만 제공되며, 투자 판단에 대한 책임은 이용자 본인에게 있습니다. 본 사이트는 투자 자문을 제공하지 않습니다.</p>
+
+<script>
+    function calculate() {
+        const entryPrice = parseFloat(document.getElementById('entryPrice').value) || 0;
+        const qty = parseFloat(document.getElementById('qty').value) || 0;
+        const lossRate = parseFloat(document.getElementById('lossRate').value) || 0;
+        if (entryPrice === 0) { alert("매수 단가를 입력해주세요."); return; }
+        const stopPrice = entryPrice * (1 - lossRate / 100);
+        const lossAmount = (entryPrice - stopPrice) * qty;
+        document.getElementById('resStopPrice').innerText = Math.round(stopPrice).toLocaleString() + '원';
+        document.getElementById('resLossAmount').innerText = Math.round(lossAmount).toLocaleString() + '원';
+        document.getElementById('resultBox').style.display = 'block';
+    }
+</script>
+</body>
+</html>

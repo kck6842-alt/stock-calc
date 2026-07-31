@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7GFKEM9P5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7GFKEM9P5');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목표 수익률 계산기 | 목표가 및 예상 수익금 자동 계산</title>
+
+    <meta name="description" content="매수 단가와 목표 수익률을 입력하면 목표 매도가와 예상 수익금을 즉시 계산해주는 무료 도구입니다. 매도 계획을 미리 세워보세요.">
+    <meta name="keywords" content="목표 수익률 계산기, 목표가 계산, 매도가 계산, 주식 수익 계산, 익절가">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://stock-calc.bond/target-return">
+
+    <meta property="og:title" content="목표 수익률 계산기 | 목표가 및 예상 수익금 자동 계산">
+    <meta property="og:description" content="매수 단가와 목표 수익률로 목표가를 즉시 계산해보세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stock-calc.bond/target-return">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="주식 평단가 계산기">
+    <meta property="og:image" content="https://stock-calc.bond/og-image.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="목표 수익률 계산기">
+    <meta name="twitter:description" content="목표가와 예상 수익금을 즉시 계산해보세요.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2131701253866532" crossorigin="anonymous"></script>
+    <meta name="google-site-verification" content="uqhdvKNpTWoI96MvIdquON3uLKApuBOuEfo_uKFwroE" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "목표 수익률 계산기",
+      "url": "https://stock-calc.bond/target-return",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "description": "매수 단가와 목표 수익률을 기준으로 목표 매도가와 예상 수익금을 계산해주는 무료 온라인 도구"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "목표 수익률은 어떻게 정하는 게 좋나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "종목의 변동성과 투자 기간에 따라 다르지만, 단기 매매는 5~15%, 중장기 투자는 20% 이상을 목표로 잡는 경우가 많습니다. 목표가에 도달했을 때 분할 매도 전략을 함께 고려하면 리스크를 줄일 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "목표가에 도달하면 반드시 전량 매도해야 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "반드시 그럴 필요는 없습니다. 목표가 도달 시 일부만 매도하여 수익을 확정하고 나머지는 추가 상승을 노리는 분할 매도 전략도 널리 사용됩니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        body { font-family: 'Pretendard', sans-serif; background-color: #f4f7f9; color: #333; margin: 0; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .nav { max-width: 600px; width: 100%; box-sizing: border-box; margin-bottom: 20px; display: flex; gap: 16px; font-size: 0.9rem; flex-wrap: wrap; }
+        .nav a { color: #3182ce; text-decoration: none; font-weight: 600; }
+        .nav a.active { color: #1a202c; text-decoration: underline; }
+        .calculator-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 400px; width: 100%; box-sizing: border-box; margin-bottom: 30px; }
+        h1 { text-align: center; color: #1a202c; margin-top: 0; font-size: 1.5rem; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 0.9rem; margin-bottom: 5px; color: #4a5568; font-weight: 500; }
+        .input-group input { width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+        button { width: 100%; padding: 14px; background-color: #38a169; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .result-box { margin-top: 20px; background: #f0fff4; padding: 15px; border-radius: 6px; border: 1px solid #c6f6d5; display: none; }
+        .result-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; }
+        .result-item:last-child { font-weight: bold; color: #276749; font-size: 1.1rem; border-top: 1px dashed #9ae6b4; padding-top: 10px; }
+        .seo-content { max-width: 600px; width: 100%; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); line-height: 1.7; color: #4a5568; }
+        .seo-content h2 { color: #2d3748; font-size: 1.4rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px; }
+        .seo-content h3 { color: #3182ce; font-size: 1.15rem; margin-top: 30px; margin-bottom: 12px; }
+        .example-box { background: #f7fafc; border-left: 4px solid #38a169; padding: 12px 16px; margin: 15px 0; border-radius: 4px; font-size: 0.95rem; }
+        .faq-item { margin-bottom: 20px; }
+        .faq-item summary { font-weight: 600; color: #2d3748; cursor: pointer; padding: 8px 0; }
+        .related { max-width: 600px; width: 100%; margin-top: 20px; }
+        .related a { display: inline-block; margin-right: 12px; color: #3182ce; text-decoration: none; font-size: 0.9rem; }
+        .disclaimer { max-width: 600px; width: 100%; font-size: 0.8rem; color: #a0aec0; text-align: center; margin-top: 20px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="/">평단가 계산기</a>
+    <a href="/stoploss">손절가 계산기</a>
+    <a href="/target-return" class="active">목표 수익률 계산기</a>
+    <a href="/dividend">배당금 계산기</a>
+    <a href="/after-tax-profit">세후 수익 계산기</a>
+    <a href="/fx-overseas-stock">해외주식 환차손익 계산기</a>
+    <a href="/guide/">투자 가이드</a>
+</div>
+
+<div class="calculator-container">
+    <h1>목표 수익률 계산기</h1>
+    <div class="input-group">
+        <label for="entryPrice">매수 단가 (원)</label>
+        <input type="number" id="entryPrice" placeholder="예: 50000">
+    </div>
+    <div class="input-group">
+        <label for="qty">보유 수량 (주)</label>
+        <input type="number" id="qty" placeholder="예: 100">
+    </div>
+    <div class="input-group">
+        <label for="targetRate">목표 수익률 (%)</label>
+        <input type="number" id="targetRate" placeholder="예: 20">
+    </div>
+    <button onclick="calculate()">계산하기</button>
+    <div class="result-box" id="resultBox">
+        <div class="result-item"><span>목표 매도가:</span><span id="resTargetPrice">0원</span></div>
+        <div class="result-item"><span>예상 수익금:</span><span id="resProfit">0원</span></div>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h2>🎯 목표 수익률 계산기 활용 가이드</h2>
+    <p>어떤 종목을 살지는 오래 고민하면서, 얼마에 팔지는 정해두지 않고 매수하는 경우가 많습니다. 이 계산기는 매수 단가와 원하는 수익률을 입력하면 목표 매도가와 그때의 수익금을 역산해 줍니다.</p>
+
+    <h3>목표가 역산은 곱셈 한 번입니다</h3>
+    <p>계산식 자체는 단순합니다. <strong>목표 매도가 = 매수 단가 × (1 + 목표 수익률)</strong>입니다. 5만 원에 사서 20% 수익을 원한다면 6만 원이 목표가가 됩니다.</p>
+    <p>중요한 것은 계산이 아니라 이 숫자를 <strong>매수하기 전에</strong> 알고 있느냐입니다. 목표가가 머릿속에 없으면 주가가 오를 때마다 판단을 새로 해야 하고, 그 판단은 대개 그날의 기분과 시장 분위기에 좌우됩니다. 반대로 목표가를 미리 알고 있으면 그 가격에 도달했을 때 할 일이 이미 정해져 있습니다.</p>
+
+    <div class="example-box">
+        <strong>계산 예시</strong><br>
+        매수 단가: 50,000원, 보유 수량: 100주, 목표 수익률: 20%<br>
+        → 목표 매도가 = 50,000 × 1.20 = <strong>60,000원</strong><br>
+        → 예상 수익금 = (60,000 - 50,000) × 100주 = <strong>1,000,000원</strong>
+    </div>
+
+    <h3>목표 수익률별 필요 상승폭</h3>
+    <p>목표 수익률을 정할 때는 그 숫자가 실제로 어느 정도의 주가 상승을 요구하는지 감을 잡아두면 좋습니다. 매수 단가 50,000원 기준입니다.</p>
+
+    <table>
+        <tr><th>목표 수익률</th><th>목표 매도가</th><th>100주 기준 수익금</th></tr>
+        <tr><td>5%</td><td>52,500원</td><td>250,000원</td></tr>
+        <tr><td>10%</td><td>55,000원</td><td>500,000원</td></tr>
+        <tr><td>20%</td><td>60,000원</td><td>1,000,000원</td></tr>
+        <tr><td>30%</td><td>65,000원</td><td>1,500,000원</td></tr>
+        <tr><td>50%</td><td>75,000원</td><td>2,500,000원</td></tr>
+        <tr><td>100%</td><td>100,000원</td><td>5,000,000원</td></tr>
+    </table>
+
+    <h3>손절선과 함께 정해야 의미가 있습니다</h3>
+    <p>목표 수익률만 정하고 손절선을 정하지 않으면 절반짜리 계획입니다. 두 숫자를 함께 봐야 이 매매가 할 만한 것인지 판단할 수 있기 때문입니다.</p>
+    <p>예를 들어 목표 수익률 10%에 손절선 -10%라면, 성공과 실패의 크기가 같으므로 승률이 50%를 넘어야 이익이 남습니다. 반면 목표 20%에 손절 -10%라면 두 번 실패하고 한 번 성공해도 본전입니다. 이 비율을 손익비라고 부르며, 손익비가 클수록 낮은 승률로도 버틸 수 있습니다.</p>
+    <p>목표가를 정할 때는 항상 <strong>이 종목에서 잃어도 되는 금액은 얼마인가</strong>를 같이 정해두시기 바랍니다. 목표만 있고 손절이 없으면, 오를 때는 조금 먹고 내릴 때는 크게 잃는 패턴이 반복되기 쉽습니다.</p>
+
+    <h3>한 번에 다 파는 것만이 답은 아닙니다</h3>
+    <p>목표가에 도달했을 때 전량 매도하면 그 이후의 상승은 놓치게 됩니다. 반대로 계속 들고 있으면 되돌림에 수익을 반납할 수 있습니다. 이 딜레마를 완화하는 방법이 분할 매도입니다.</p>
+    <ul>
+        <li><strong>1차 목표에서 절반 매도</strong> — 원금 회수 또는 최소 수익을 확보합니다. 이 시점부터 심리적 부담이 크게 줄어듭니다.</li>
+        <li><strong>나머지는 2차 목표까지 보유</strong> — 이미 수익을 확정했기 때문에 조급함 없이 지켜볼 수 있습니다.</li>
+        <li><strong>2차 물량의 손절선은 1차 목표가로</strong> — 다시 1차 목표가까지 내려오면 정리해서 확보한 수익을 지킵니다.</li>
+    </ul>
+    <p>이렇게 하면 어느 방향으로 가더라도 최악의 결과는 피할 수 있습니다. 계산기로 1차와 2차 목표가를 각각 구해 미리 적어두시면 실행이 훨씬 쉬워집니다.</p>
+
+    <h3>실현 가능한 목표를 세우는 기준</h3>
+    <p>목표 수익률은 높게 잡을수록 좋아 보이지만, 도달 확률이 함께 떨어진다는 점을 잊기 쉽습니다. 목표가 지나치게 높으면 도달하지 못한 채 하락 전환을 맞고, 결국 수익 구간에서 손실 구간으로 되돌아오는 일이 반복됩니다.</p>
+    <p>현실적인 기준을 잡으려면 해당 종목이 최근 몇 달간 얼마나 움직였는지를 보시는 것이 좋습니다. 최근 3개월간 최대 상승폭이 15% 수준인 종목에 50% 목표를 거는 것은 근거가 약합니다. 종목의 실제 움직임 범위 안에서 목표를 잡고, 도달하면 일부라도 확정하는 편이 장기적으로 안정적입니다.</p>
+
+    <h3>자주 묻는 질문 (FAQ)</h3>
+    <details class="faq-item">
+        <summary>목표 수익률은 어떻게 정하는 게 좋나요?</summary>
+        <p>종목의 변동성과 투자 기간에 따라 다르지만, 단기 매매는 5~15%, 중장기 투자는 20% 이상을 목표로 잡는 경우가 많습니다. 목표가에 도달했을 때 분할 매도 전략을 함께 고려하면 리스크를 줄일 수 있습니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>목표가에 도달하면 반드시 전량 매도해야 하나요?</summary>
+        <p>반드시 그럴 필요는 없습니다. 목표가 도달 시 일부만 매도하여 수익을 확정하고 나머지는 추가 상승을 노리는 분할 매도 전략도 널리 사용됩니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>여기서 계산된 수익금이 그대로 입금되나요?</summary>
+        <p>아닙니다. 이 계산기는 주가 차익만 계산합니다. 실제로는 매도 시 증권거래세와 매매 수수료가 차감되며, 해외주식이나 과세 대상에 해당하는 경우 세금이 추가로 발생합니다. 세금까지 반영한 금액은 세후 수익 계산기를 이용해 보세요.</p>
+    </details>
+    <details class="faq-item">
+        <summary>목표가를 매수 후에 바꿔도 되나요?</summary>
+        <p>실적 발표나 업황 변화처럼 판단의 근거가 실제로 바뀌었다면 조정할 수 있습니다. 다만 단순히 주가가 잘 올라서 목표를 높이는 것은 계획이 아니라 욕심에 가깝습니다. 목표를 바꿀 때는 그 이유를 한 문장으로 쓸 수 있는지 확인해 보시기 바랍니다.</p>
+    </details>
+    <details class="faq-item">
+        <summary>평단가가 여러 번 바뀌었을 때는 어떤 값을 넣나요?</summary>
+        <p>최종 평단가를 매수 단가 칸에 입력하시면 됩니다. 평단가를 모르신다면 평단가 계산기에서 먼저 구한 뒤 그 값을 사용하세요.</p>
+    </details>
+</div>
+
+<div class="related">
+    관련 계산기:
+    <a href="/">주식 평단가 계산기</a>
+    <a href="/stoploss">손절가 계산기</a>
+</div>
+
+<div class="related" style="margin-top: 8px;">
+    <a href="/privacy">개인정보처리방침</a>
+    <a href="/terms">이용약관</a>
+</div>
+
+<p class="disclaimer">본 계산기는 투자 참고 목적으로만 제공되며, 투자 판단에 대한 책임은 이용자 본인에게 있습니다. 본 사이트는 투자 자문을 제공하지 않습니다.</p>
+
+<script>
+    function calculate() {
+        const entryPrice = parseFloat(document.getElementById('entryPrice').value) || 0;
+        const qty = parseFloat(document.getElementById('qty').value) || 0;
+        const targetRate = parseFloat(document.getElementById('targetRate').value) || 0;
+        if (entryPrice === 0) { alert("매수 단가를 입력해주세요."); return; }
+        const targetPrice = entryPrice * (1 + targetRate / 100);
+        const profit = (targetPrice - entryPrice) * qty;
+        document.getElementById('resTargetPrice').innerText = Math.round(targetPrice).toLocaleString() + '원';
+        document.getElementById('resProfit').innerText = Math.round(profit).toLocaleString() + '원';
+        document.getElementById('resultBox').style.display = 'block';
+    }
+</script>
+</body>
+</html>
