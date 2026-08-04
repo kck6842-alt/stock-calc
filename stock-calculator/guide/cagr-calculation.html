@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7GFKEM9P5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7GFKEM9P5');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복리 수익률 계산법 (CAGR) | 주식 계산기 가이드</title>
+
+    <meta name="description" content="복리 수익률 계산법 (CAGR) - ">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://stock-calc.bond/guide/cagr-calculation">
+
+    <meta property="og:title" content="복리 수익률 계산법 (CAGR)">
+    <meta property="og:description" content="복리 수익률 계산법 (CAGR) - ">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://stock-calc.bond/guide/cagr-calculation">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="주식 평단가 계산기">
+    <meta property="og:image" content="https://stock-calc.bond/og-image.png">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2131701253866532" crossorigin="anonymous"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "복리 수익률 계산법 (CAGR)",
+      "description": "복리 수익률 계산법 (CAGR) - ",
+      "inLanguage": "ko",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://stock-calc.bond/guide/cagr-calculation" },
+      "publisher": { "@type": "Organization", "name": "주식 계산기" },
+      "datePublished": "2026-08-04"
+    }
+    </script>
+
+    <style>
+        body { font-family: 'Pretendard', sans-serif; background-color: #f4f7f9; color: #333; margin: 0; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        h1 { text-align: center; color: #1a202c; margin-top: 0; font-size: 1.5rem; }
+        .seo-content { max-width: 600px; width: 100%; box-sizing: border-box; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); line-height: 1.7; color: #4a5568; }
+        .seo-content h2 { color: #2d3748; font-size: 1.4rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px; }
+        .seo-content h3 { color: #3182ce; font-size: 1.15rem; margin-top: 30px; margin-bottom: 12px; }
+        .seo-content ul { padding-left: 20px; }
+        .seo-content li { margin-bottom: 8px; }
+        .seo-content table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.92rem; }
+        .seo-content th, .seo-content td { border: 1px solid #e2e8f0; padding: 9px 10px; text-align: left; }
+        .seo-content th { background: #f7fafc; color: #2d3748; font-weight: 600; }
+        .example-box { background: #f7fafc; border-left: 4px solid #3182ce; padding: 12px 16px; margin: 15px 0; border-radius: 4px; font-size: 0.95rem; }
+        .cta-box { max-width: 600px; width: 100%; box-sizing: border-box; margin-top: 20px; background: #ebf8ff; border: 1px solid #bee3f8; border-radius: 12px; padding: 20px; text-align: center; }
+        .cta-box a { display: inline-block; margin-top: 10px; padding: 12px 24px; background-color: #3182ce; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold; }
+        .disclaimer { max-width: 600px; width: 100%; font-size: 0.8rem; color: #a0aec0; text-align: center; margin-top: 20px; line-height: 1.6; }
+        .nav { max-width: 600px; width: 100%; box-sizing: border-box; margin-bottom: 20px; display: flex; gap: 16px; font-size: 0.9rem; flex-wrap: wrap; }
+        .nav a { color: #3182ce; text-decoration: none; font-weight: 600; }
+        .related { max-width: 600px; width: 100%; margin-top: 20px; }
+        .related a { display: inline-block; margin-right: 12px; color: #3182ce; text-decoration: none; font-size: 0.9rem; }
+        .post-list { list-style: none; padding: 0; margin: 0; }
+        .post-list li { border-bottom: 1px solid #edf2f7; padding: 14px 0; }
+        .post-list li:last-child { border-bottom: none; }
+        .post-list a { color: #2d3748; text-decoration: none; font-weight: 600; font-size: 1.02rem; }
+        .post-list a:hover { color: #3182ce; }
+        .post-list .tag { display: inline-block; margin-top: 6px; font-size: 0.78rem; color: #718096; background: #f7fafc; border-radius: 4px; padding: 2px 8px; }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="/">평단가 계산기</a>
+    <a href="/stoploss">손절가 계산기</a>
+    <a href="/target-return">목표 수익률 계산기</a>
+    <a href="/dividend">배당금 계산기</a>
+    <a href="/after-tax-profit">세후 수익 계산기</a>
+    <a href="/fx-overseas-stock">해외주식 환차손익 계산기</a>
+    <a href="/guide/">투자 가이드</a>
+</div>
+
+<div class="seo-content">
+    <h2>복리 수익률 계산법 (CAGR)</h2>
+<h3>연평균 성장률(CAGR)이 투자 성과 측정의 기준인 이유</h3>
+<p>많은 투자자가 자신의 계좌 수익률을 확인할 때 단순히 '총 수익률'만을 보는 경향이 있습니다. 하지만 기간이 서로 다른 투자 성과를 비교할 때, 단순히 전체 수익률만 나열하는 것은 착시를 일으킬 수 있습니다. 예를 들어 3년 동안 30%를 번 투자와 5년 동안 40%를 번 투자가 있다면, 어느 쪽이 더 효율적인 선택이었는지 직관적으로 판단하기 어렵습니다. 이때 필요한 개념이 바로 연평균 성장률(CAGR: Compound Annual Growth Rate)입니다.</p>
+<p>CAGR은 투자 기간 동안 자산이 매년 일정하게 성장했다고 가정했을 때의 기하학적 평균 수익률을 의미합니다. 이는 단기적인 변동성을 제거하고, 자산이 시간의 흐름에 따라 복리로 얼마나 꾸준히 증식했는지를 보여주는 가장 객관적인 지표입니다. 단순히 수익의 총합을 기간으로 나누는 산술 평균과는 차원이 다른, 복리의 마법을 반영한 수치라고 할 수 있습니다.</p>
+
+<h3>CAGR의 구조적 이해와 계산의 핵심</h3>
+<p>CAGR을 구하기 위해서는 최종 가치(Ending Value), 초기 가치(Beginning Value), 그리고 투자 기간(n)이라는 세 가지 요소가 필요합니다. 계산의 핵심은 단순히 수익을 기간으로 나누는 것이 아니라, 전체 기간 동안의 총 수익률을 1/n 제곱하여 연 단위로 환산하는 과정입니다. 이 과정을 통해 투자자는 자신의 자산이 매년 평균적으로 어느 정도의 속도로 불어났는지 정확히 파악할 수 있습니다.</p>
+<p>이 계산법이 중요한 이유는 '시간의 가치'를 반영하기 때문입니다. 시간이 길어질수록 복리 효과는 기하급수적으로 커지며, CAGR은 이 복리의 힘을 정량화하여 보여줍니다. 투자자는 이를 통해 자신이 선택한 자산 배분 전략이 시장의 평균적인 성과를 상회하고 있는지, 혹은 시간 대비 효율이 떨어지는 투자를 하고 있는지를 냉철하게 평가할 수 있습니다.</p>
+
+<h3>단순 수익률과 CAGR의 결정적 차이</h3>
+<p>투자자들이 가장 많이 범하는 오류 중 하나는 누적 수익률을 연간 수익률로 착각하는 것입니다. 예를 들어 2년 동안 20%의 수익을 냈다고 해서 매년 10%씩 수익이 발생했다고 단정할 수 없습니다. 실제로는 첫해에 5%, 둘째 해에 약 14.3%가 상승했을 수도 있기 때문입니다. CAGR은 이러한 기간 내 변동성을 평탄화하여 연 단위의 기준점을 제시합니다.</p>
+<p>다음은 누적 수익률과 CAGR의 성격 차이를 요약한 내용입니다.</p>
+<ul>
+<li>누적 수익률: 투자 시작부터 현재까지의 단순한 자산 증감률을 나타내며, 기간에 대한 고려가 생략되어 있습니다.</li>
+<li>CAGR: 전체 기간을 1년 단위의 복리 성장으로 치환하여, 시간의 흐름을 반영한 실질적인 성장 속도를 보여줍니다.</li>
+<li>비교 지표: 서로 다른 기간을 가진 여러 투자 자산이나 포트폴리오의 성과를 동일 선상에서 비교할 수 있게 해줍니다.</li>
+<li>전략 점검: 자신의 투자 목표 수익률이 CAGR 관점에서 현실적인지 검토하는 기준이 됩니다.</li>
+</ul>
+
+<h3>복리 효과를 극대화하는 CAGR 활용 전략</h3>
+<p>투자 성과를 CAGR로 측정하기 시작하면, 자연스럽게 '시간'을 아군으로 만드는 전략을 고민하게 됩니다. 복리는 시간이 길어질수록 기울기가 가팔라지는 특성이 있습니다. 따라서 단기적인 등락에 일희일비하기보다는, CAGR을 높일 수 있는 자산군을 장기간 보유하는 것이 복리 수익을 극대화하는 핵심입니다. CAGR이 높은 자산을 선택하는 것만큼이나, 그 자산을 얼마나 오래 보유할 수 있는지가 최종 자산 규모를 결정합니다.</p>
+<p>또한, CAGR 관점에서 투자를 바라보면 '기회비용'이 명확해집니다. 현재 보유한 자산의 CAGR이 시장 평균 수익률보다 낮다면, 자산 배분을 재조정하거나 투자 대상을 교체해야 할 강력한 신호로 받아들여야 합니다. 단순히 수익이 났다는 사실에 안주하지 말고, 그 수익이 시간 대비 얼마나 효율적으로 창출되었는지를 끊임없이 되묻는 과정이 필요합니다.</p>
+
+<h3>CAGR 분석 시 주의해야 할 함정</h3>
+<p>CAGR은 매우 유용한 지표이지만, 수치 자체만 맹신해서는 안 됩니다. 가장 큰 함정은 '변동성'이 숨겨져 있다는 점입니다. CAGR은 시작점과 끝점만을 가지고 계산하기 때문에, 중간에 발생했던 극심한 하락장이나 급격한 변동성을 모두 생략합니다. 높은 CAGR을 기록했더라도 그 과정에서 자산이 반토막 나는 과정을 겪었다면, 일반적인 투자자가 감당하기 어려운 전략일 수 있습니다.</p>
+<p>따라서 CAGR을 확인할 때는 반드시 다음 사항을 함께 고려해야 합니다.</p>
+<ul>
+<li>최대 낙폭(MDD): CAGR이 높더라도 하락 폭이 지나치게 컸다면 위험 관리 측면에서 부적절할 수 있습니다.</li>
+<li>지속 가능성: 과거의 높은 CAGR이 미래에도 지속될 수 있는 구조인지, 일시적인 운에 의한 결과는 아닌지 분석해야 합니다.</li>
+<li>변동성 관리: CAGR과 함께 수익률의 표준편차를 확인하여, 수익의 안정성을 체크하는 것이 바람직합니다.</li>
+<li>비교 대상의 적절성: 자신의 투자 성향과 유사한 벤치마크 지수와 비교해야 객관적인 평가가 가능합니다.</li>
+</ul>
+
+<h3>성과 측정의 최종 단계: CAGR 기반의 포트폴리오 관리</h3>
+<p>결국 성공적인 투자는 CAGR을 점진적으로 높여가는 과정입니다. 이를 위해서는 자신의 투자 원칙이 매년 꾸준한 성과를 낼 수 있는 구조인지 확인해야 합니다. 일시적인 대박보다는 복리라는 이름의 눈덩이를 얼마나 크고 단단하게 굴려 나갈 것인가가 자산 형성의 핵심입니다. 매년 결산 시점에 자신의 포트폴리오를 CAGR로 환산하여 기록하고, 이 수치가 자신의 목표치를 향해 가고 있는지 점검하는 습관을 들이십시오.</p>
+<p>투자는 마라톤과 같습니다. 초반의 속도보다 중요한 것은 끝까지 완주할 수 있는 복리의 동력입니다. CAGR은 그 동력이 제대로 작동하고 있는지 알려주는 나침반 역할을 할 것입니다. 이제부터는 계좌의 총 수익률이라는 단편적인 수치에서 벗어나, 시간의 가치가 녹아있는 CAGR을 통해 더욱 정교하고 전략적인 투자를 실천해 보시기 바랍니다.</p>
+
+<p>아래 계산기를 이용하면 직접 수치를 넣어 바로 확인할 수 있습니다.</p>
+</div>
+
+<div class="cta-box">
+    <strong>목표 수익률 계산기로 직접 계산해 보세요</strong>
+    <br>
+    <a href="/target-return">목표 수익률 계산기 바로가기</a>
+</div>
+
+<div class="related">
+    관련 계산기:
+    <a href="/">평단가 계산기</a>
+    <a href="/stoploss">손절가 계산기</a>
+    <a href="/target-return">목표 수익률 계산기</a>
+</div>
+
+<div class="related" style="margin-top: 8px;">
+    <a href="/privacy">개인정보처리방침</a>
+    <a href="/terms">이용약관</a>
+</div>
+
+<p class="disclaimer">본 콘텐츠는 투자 참고 목적으로만 제공되며, 투자 판단에 대한 책임은 이용자 본인에게 있습니다. 본 사이트는 투자 자문을 제공하지 않습니다.</p>
+
+</body>
+</html>
